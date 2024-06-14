@@ -19,18 +19,26 @@ def preguntar_notas():
     
     for materia in asignaturas:
         nota = float(input(f"¿Qué notas sacaste en {materia}?\n"))
+        while nota > 5:
+            print("La nota máxima es 5.0.")
+            nota = float(input(f"Escribe un valor válido.\n"))
+
         notas.append(nota)
         
     return notas
 
+
+
 def mostrar_info():
+    #Convertimos dos listas en un diccionario
     materias_mas_nota = dict(zip(asignaturas, notas))
+    for key , value in materias_mas_nota.items():
+        print(f"La asignatura {key} te quedó en {value}")
+        
 
 
 agregar_asignatura()
 
 preguntar_notas()
-
-#materias_mas_nota = dict(zip(asignaturas, notas)) ---> de esta forma creamos un diccionario a partir de dos listas.
 
 mostrar_info()
